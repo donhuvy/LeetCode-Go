@@ -59,7 +59,7 @@
 
 ## Data Structures
 
-> 标识了 ✅ 的专题是完成所有题目了的，没有标识的是还没有做完所有题目的
+> The topics marked with ✅ have completed all the topics, and those without the mark have not completed all the topics
 
 <a href="https://books.halfrost.com/leetcode/"><img src="./website/static/logo.png" alt="logo" height="550" align="right" /></a>
 
@@ -133,9 +133,9 @@
 |Completion Rate|47.8%|37.1%|26.3%|37.4%|
 |------------|----------------------------|----------------------------|----------------------------|----------------------------|
 
-## 二. 目录
+## 2. Directory
 
-以下已经收录了 787 道题的题解，还有 11 道题在尝试优化到 beats 100%
+787 questions have been collected below, and there are still 11 questions that are trying to optimize to beats 100%
 
 | No.    |  Title  |  Solution  |  Acceptance |  Difficulty |  Frequency |
 |:--------:|:--------------------------------------------------------------|:--------:|:--------:|:--------:|:--------:|
@@ -2585,14 +2585,9 @@
 |2444|Count Subarrays With Fixed Bounds||38.4%|Hard||
 |------------|-------------------------------------------------------|-------| ----------------| ---------------|-------------|
 
-------------------------------------------------------------------
-
 下面这些是免费的算法题，但是暂时还不能使用 Go 解答的：
 
 暂无
-
-------------------------------------------------------------------
-
 
 ## 三.分类
 
@@ -2614,6 +2609,7 @@ Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/String/)
 
 - 双指针滑动窗口的经典写法。右指针不断往右移，移动到不能往右移动为止(具体条件根据题目而定)。当右指针到最右边以后，开始挪动左指针，释放窗口左边界。第 3 题，第 76 题，第 209 题，第 424 题，第 438 题，第 567 题，第 713 题，第 763 题，第 845 题，第 881 题，第 904 题，第 978 题，第 992 题，第 1004 题，第 1040 题，第 1052 题。
 
+---
 ```c
 	left, right := 0, -1
 
@@ -2628,6 +2624,7 @@ Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/String/)
 		result = max(result, right-left+1)
 	}
 ```
+---
 
 - 快慢指针可以查找重复数字，时间复杂度 O(n)，第 287 题。
 - 替换字母以后，相同字母能出现连续最长的长度。第 424 题。
@@ -2700,6 +2697,7 @@ Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Dynamic_
 - BFS 优化。第 126 题，第 127 题。
 - DFS 模板。(只是一个例子，不对应任何题)
 
+---
 ```go
 func combinationSum2(candidates []int, target int) [][]int {
 	if len(candidates) == 0 {
@@ -2730,8 +2728,10 @@ func findcombinationSum2(nums []int, target, index int, c []int, res *[][]int) {
 	}
 }
 ```
+---
 - BFS 模板。(只是一个例子，不对应任何题)
 
+---
 ```go
 func updateMatrix_BFS(matrix [][]int) [][]int {
 	res := make([][]int, len(matrix))
@@ -2778,6 +2778,7 @@ func updateMatrix_BFS(matrix [][]int) [][]int {
 	return res
 }
 ```
+---
 
 
 Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Backtracking/)
@@ -2810,6 +2811,7 @@ Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Breadth_
 	2. mid 的取值，mid := low + (high-low)>>1
 	3. low 和 high 的更新。low = mid + 1，high = mid - 1。
 
+---
 ```go
 func binarySearchMatrix(nums []int, target int) int {
 	low, high := 0, len(nums)-1
@@ -2826,6 +2828,7 @@ func binarySearchMatrix(nums []int, target int) int {
 	return -1
 }
 ```
+---
 
 - 二分搜索的变种写法。有 4 个基本变种:
 	1. 查找第一个与 target 相等的元素，时间复杂度 O(logn)
@@ -2833,6 +2836,7 @@ func binarySearchMatrix(nums []int, target int) int {
 	3. 查找第一个大于等于 target 的元素，时间复杂度 O(logn)
 	4. 查找最后一个小于等于 target 的元素，时间复杂度 O(logn)
 
+---
 ```go
 // 二分查找第一个与 target 相等的元素，时间复杂度 O(logn)
 func searchFirstEqualElement(nums []int, target int) int {
@@ -2906,9 +2910,11 @@ func searchLastLessElement(nums []int, target int) int {
 	return -1
 }
 ```
+---
 
 - 在基本有序的数组中用二分搜索。经典解法可以解，变种写法也可以写，常见的题型，在山峰数组中找山峰，在旋转有序数组中找分界点。第 33 题，第 81 题，第 153 题，第 154 题，第 162 题，第 852 题
 
+---
 ```go
 func peakIndexInMountainArray(A []int) int {
 	low, high := 0, len(A)-1
@@ -2924,6 +2930,7 @@ func peakIndexInMountainArray(A []int) int {
 	return low
 }
 ```
+---
 
 - max-min 最大值最小化问题。求在最小满足条件的情况下的最大值。第 410 题，第 875 题，第 1011 题，第 1283 题。
 
@@ -2966,6 +2973,7 @@ Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Sort/)
 
 - 异或的特性。第 136 题，第 268 题，第 389 题，第 421 题，
 
+---
 ```go
 x ^ 0 = x
 x ^ 11111……1111 = ~x
@@ -2974,9 +2982,11 @@ x ^ x = 0
 a ^ b = c  => a ^ c = b  => b ^ c = a (交换律)
 a ^ b ^ c = a ^ (b ^ c) = (a ^ b）^ c (结合律)
 ```
+---
 
 - 构造特殊 Mask，将特殊位置放 0 或 1。
 
+---
 ```go
 将 x 最右边的 n 位清零， x & ( ~0 << n )
 获取 x 的第 n 位值(0 或者 1)，(x >> n) & 1
@@ -2986,15 +2996,18 @@ a ^ b ^ c = a ^ (b ^ c) = (a ^ b）^ c (结合律)
 将 x 最高位至第 n 位(含)清零，x & ((1 << n) - 1)
 将第 n 位至第 0 位(含)清零，x & (~((1 << (n + 1)) - 1)）
 ```
+---
 
 - 有特殊意义的 & 位操作运算。第 260 题，第 201 题，第 318 题，第 371 题，第 397 题，第 461 题，第 693 题，
 
+---
 ```go
 X & 1 == 1 判断是否是奇数(偶数)
 X & = (X - 1) 将最低位(LSB)的 1 清零
 X & -X 得到最低位(LSB)的 1
 X & ~X = 0
 ```
+---
 
 Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Bit_Manipulation/)
 
@@ -3021,6 +3034,7 @@ Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Union_Fi
 
 - 双指针滑动窗口的经典写法。右指针不断往右移，移动到不能往右移动为止(具体条件根据题目而定)。当右指针到最右边以后，开始挪动左指针，释放窗口左边界。第 3 题，第 76 题，第 209 题，第 424 题，第 438 题，第 567 题，第 713 题，第 763 题，第 845 题，第 881 题，第 904 题，第 978 题，第 992 题，第 1004 题，第 1040 题，第 1052 题。
 
+---
 ```c
 	left, right := 0, -1
 
@@ -3035,6 +3049,7 @@ Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Union_Fi
 		result = max(result, right-left+1)
 	}
 ```
+---
 - 滑动窗口经典题。第 239 题，第 480 题。
 
 Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Sliding_Window/)
@@ -3079,8 +3094,6 @@ Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Segment_
 
 Problems List in [there](https://books.halfrost.com/leetcode/ChapterTwo/Binary_Indexed_Tree/)
 
-
-----------------------------------------------------------------------------------------
 
 <p align='center'>
 <a href="https://github.com/halfrost/LeetCode-Go/releases/tag/Special"><img src="https://img.halfrost.com/Leetcode/ACM-ICPC_Algorithm_Template.png"></a>
