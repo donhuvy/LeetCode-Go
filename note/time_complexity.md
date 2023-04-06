@@ -1,9 +1,10 @@
-# 时间复杂度和空间复杂度
+
+# Time Complexity and Space Complexity
 
 
-## 一. 时间复杂度数据规模
+## 1. Time complexity data scale
 
-1s 内能解决问题的数据规模：10^6 ~ 10^7
+The scale of data that can solve the problem within 1s：10^6 ~ 10^7
 
 - O(n^2) 算法可以处理 10^4 级别的数据规模(保守估计，处理 1000 级别的问题肯定没问题)
 - O(n) 算法可以处理 10^8 级别的数据规模(保守估计，处理 10^7 级别的问题肯定没问题)
@@ -26,6 +27,7 @@
 
 一些具有迷惑性的例子：
 
+---
 ```c
 void hello (int n){
 
@@ -34,9 +36,11 @@ void hello (int n){
             cout << "Hello" << endl;
 }
 ```
+---
 
 上面这段代码的时间复杂度是 O(nlog n) 而不是 O(n^2)
 
+---
 ```c
 bool isPrime (int n){
 
@@ -46,6 +50,7 @@ bool isPrime (int n){
     return true;
 }
 ```
+---
 
 上面这段代码的时间复杂度是 O(sqrt(n)) 而不是 O(n)。
 
@@ -59,6 +64,7 @@ bool isPrime (int n){
 
 递归调用是有空间代价的，递归算法需要保存递归栈信息，所以花费的空间复杂度会比非递归算法要高。
 
+---
 ```c
 int sum( int n ){
     assert( n >= 0 )
@@ -68,9 +74,11 @@ int sum( int n ){
     return ret;
 }
 ```
+---
 
 上面算法的时间复杂度为 O(n)，空间复杂度 O(1)。
 
+---
 ```c
 int sum( int n ){
     assert( n >= 0 )
@@ -79,6 +87,7 @@ int sum( int n ){
     return n + sum( n - 1);
 }
 ```
+---
 
 上面算法的时间复杂度为 O(n)，空间复杂度 O(n)。
 
@@ -90,6 +99,7 @@ int sum( int n ){
 
 举个例子：
 
+---
 ```c
 int binarySearch(int arr[], int l, int r, int target){
 	if( l > r)
@@ -104,14 +114,16 @@ int binarySearch(int arr[], int l, int r, int target){
 }
 
 ```
+---
 
 在二分查找的递归实现中，只递归调用了自身。递归深度是 log n ，每次递归里面的复杂度是 O(1) 的，所以二分查找的递归实现的时间复杂度为 O(log n) 的。
 
 
-### 只有多次递归调用
+### Only multiple recursive calls
 
-针对多次递归调用的情况，就需要看它的计算调用的次数了。通常可以画一颗递归树来看。举例：
+For the case of multiple recursive calls, you need to look at the number of times it is calculated and called. Usually you can draw a recursive tree to see. Example:
 
+---
 ```c
 int f(int n){
     assert( n >= 0 );
@@ -120,8 +132,9 @@ int f(int n){
     return f( n - 1 ) + f ( n - 1 );
 
 ```
+---
 
-上述这次递归调用的次数为 2^0^ + 2^1^ + 2^2^ + …… + 2^n^ = 2^n+1^ - 1 = O(2^n)
+The number of recursive calls above is 2^0^ + 2^1^ + 2^2^ + …… + 2^n^ = 2^n+1^ - 1 = O(2^n)
 
 
-> 关于更加复杂的递归的复杂度分析，请参考，主定理。主定理中针对各种复杂情况都给出了正确的结论。
+For a complexity analysis of more complicated recursions, see, The Master Theorem. The main theorem gives correct conclusions for various complex situations.
